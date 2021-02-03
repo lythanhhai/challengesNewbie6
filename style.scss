@@ -1,0 +1,372 @@
+$VeryDarkGrayishBlue: hsl(217, 19%, 35%);
+$DesaturatedDarkBlue: hsl(214, 17%, 51%);
+$GrayishBlue: hsl(212, 23%, 69%);
+$LightGrayishBlue: hsl(210, 46%, 95%);
+input::-webkit-search-decoration,
+input::-webkit-search-cancel-button,
+input::-webkit-search-results-button,
+input::-webkit-search-results-decoration {
+  -webkit-appearance: none;
+}
+html {
+  font-size: 62.5%;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Spartan", sans-serif;
+}
+body {
+  font-family: "Spartan", sans-serif;
+}
+
+@mixin size($width, $height) {
+  width: $width;
+  height: $height;
+}
+@mixin flexCen($align, $just, $wrap, $direct) {
+  display: flex;
+  align-items: $align;
+  justify-content: $just;
+  flex-wrap: $wrap;
+  flex-direction: $direct;
+}
+
+.container {
+  @include size(100vw, 100vh);
+  background-color: rgb(237, 242, 248);
+  position: relative;
+  &__work {
+    @include size(45rem, 18rem);
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 0.5rem;
+    &-image {
+      @include size(17rem, 18rem);
+      object-fit: cover;
+      border-top-left-radius: 0.5rem;
+      border-bottom-left-radius: 0.5rem;
+    }
+    &-info {
+      display: flex;
+      flex-direction: column;
+      margin-left: 2rem;
+      .title {
+        font-size: 1.4rem;
+        font-weight: 500;
+        color: $VeryDarkGrayishBlue;
+        margin: 2rem 0 1rem;
+        max-width: 20rem;
+      }
+      .content {
+        color: $GrayishBlue;
+        font-size: 1rem;
+        font-weight: 400;
+        max-width: 24rem;
+      }
+      .more {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin: 2.5rem 1rem;
+        &__avatar {
+          @include size(3rem, 3rem);
+          object-fit: cover;
+          border-radius: 50%;
+          margin-right: 0.8rem;
+        }
+        &__personal {
+          display: flex;
+          flex-direction: column;
+          &-name {
+            color: $VeryDarkGrayishBlue;
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 0.6rem;
+            margin-right: 8rem;
+          }
+          &-birth {
+            color: $GrayishBlue;
+            font-weight: 100;
+            font-size: 0.8rem;
+          }
+        }
+        &__social {
+          @include size(2rem, 2rem);
+          border-radius: 1rem;
+          background-color: $LightGrayishBlue;
+          cursor: pointer;
+          transition: all 0.25 linear;
+          text-align: center;
+          justify-content: center;
+          align-items: center;
+          padding-top: 0.5rem;
+          position: relative;
+          transition: all 0.25s linear;
+          &-arrow {
+            //   position: absolute;
+            //   top:50%;
+            //   left:50%;
+            //   transform: translate(-50%,-50%);
+            color: $DesaturatedDarkBlue;
+          }
+          &:hover {
+            background-color: $VeryDarkGrayishBlue;
+            color: $LightGrayishBlue;
+          }
+          &::before {
+            content: "";
+            @include size(0.1rem, 0.1rem);
+            border-radius: 50%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform: translate(27%, -190%);
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+
+            border-top: 10px solid $VeryDarkGrayishBlue;
+            display: none;
+          }
+        }
+      }
+    }
+    .share
+    {
+
+        position: absolute;
+        top:50%;
+        left:101.4%;
+        transform: translate(-101.4%,23%);
+        background-color: $VeryDarkGrayishBlue;
+        display: flex;
+        @include size(8rem,2.5rem);
+        border-radius: 0.6rem;
+        display: none;
+        &__name
+        {
+            margin:0.7rem 0.5rem 0;
+            position: absolute;
+        }
+        .facebook
+        {
+            @include size(1rem,1rem);
+            object-fit: cover;
+            margin:0.7rem 0.5rem 1rem 0;
+            position: absolute;
+            top:1.5;
+            left:3.5rem;
+        }
+        .tweeter
+        {
+            @include size(1rem,1rem);
+            object-fit: cover;
+            margin:0.7rem 0.5rem 0.5rem 0;
+            position: absolute;
+            top:1.5;
+            left:5rem;
+        }
+        .printest
+        {
+            @include size(1rem,1rem);
+            object-fit: cover;
+            margin:0.7rem 0.5rem 0 0;
+            position: absolute;
+            top:1.5;
+            left:6.5rem;
+        }
+    }
+  }
+  .attribution
+  {
+      position: absolute;
+      left: 50%;
+      bottom: 10%;
+      transform: translate(-50%,-10%);
+  }
+}
+
+@media screen and (max-width:767px)
+{  
+.container {
+    @include size(100vw, 100vh);
+    background-color: rgb(237, 242, 248);
+    position: relative;
+    &__work {
+      @include size(93vw,27rem);
+      background-color: white;
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 0.5rem;
+      &-image {
+        @include size(100%, 37%);
+        object-fit: cover;
+        border-top-right-radius: 0.5rem;
+        border-top-left-radius: 0.5rem;
+        border-bottom-left-radius: 0rem;
+      }
+      &-info {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        margin-left: 0.6rem;
+        margin-right: 0.6rem;
+        .title {
+          font-size: 1.1rem;
+          font-weight: 500;
+          color: $VeryDarkGrayishBlue;
+          margin: 2rem 0 1rem;
+        //   max-width: 24rem;
+        
+        }
+        .content {
+          color: $GrayishBlue;
+          font-size: 0.8rem;
+          font-weight: 400;
+          max-width: 24rem;
+        }
+        .more {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          margin: 2.5rem 0.4rem;
+          &__avatar {
+            @include size(2rem, 2rem);
+            object-fit: cover;
+            border-radius: 50%;
+            margin-right: 0.8rem;
+          }
+          &__personal {
+            display: flex;
+            flex-direction: column;
+            &-name {
+              color: $VeryDarkGrayishBlue;
+              font-size: 0.9rem;
+              font-weight: 500;
+              margin-bottom: 0.5rem;
+              margin-right: 5rem;
+            }
+            &-birth {
+              color: $GrayishBlue;
+              font-weight: 100;
+              font-size: 0.6rem;
+              margin-left: -8.75rem;
+            }
+          }
+          &__social {
+            @include size(2rem, 2rem);
+            border-radius: 1rem;
+            background-color: $LightGrayishBlue;
+            cursor: pointer;
+            transition: all 0.25 linear;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            padding-top: 0.5rem;
+            position: relative;
+            transition: all 0.25s linear;
+            z-index: 2;
+            &-arrow {
+              //   position: absolute;
+              //   top:50%;
+              //   left:50%;
+              //   transform: translate(-50%,-50%);
+              color: $DesaturatedDarkBlue;
+            }
+            &:hover {
+              background-color: $VeryDarkGrayishBlue;
+              color: $LightGrayishBlue;
+            }
+            &::before {
+              content: "";
+              @include size(0.1rem, 0.1rem);
+              border-radius: 50%;
+              position: absolute;
+              top: 0;
+              left: 0;
+              transform: translate(27%, -190%);
+              width: 0;
+              height: 0;
+              border-left: 10px solid transparent;
+              border-right: 10px solid transparent;
+  
+              border-top: 10px solid $VeryDarkGrayishBlue;
+              display: none;
+            }
+          }
+        }
+      }
+      .share
+      {
+  
+          position: absolute;
+          top:77%;
+          left:101.4%;
+          transform: translate(-101.4%,23%);
+          background-color: $VeryDarkGrayishBlue;
+          display: flex;
+          @include size(100%,3rem);
+          border-radius: 0.6rem;
+          border-top-left-radius: 0;
+          border-top-right-radius: 0;
+        //   display: none;
+          &__name
+          {
+              margin:0.7rem 1rem 0;
+              font-size: 1.3rem;
+
+              position: absolute;
+          }
+          .facebook
+          {
+              @include size(1.5rem,1.5rem);
+              object-fit: cover;
+              margin:0.7rem 0rem 0rem 2rem;
+              position: absolute;
+              top:1.5;
+              left:3.5rem;
+          }
+          .tweeter
+          {
+            @include size(1.5rem,1.5rem);
+              object-fit: cover;
+              margin:0.7rem 4rem 0rem 4rem;
+              position: absolute;
+              top:1.5;
+              left:5rem;
+          }
+          .printest
+          {
+            @include size(1.5rem,1.5rem);
+              object-fit: cover;
+              margin:0.7rem 3rem 0 6rem;
+              position: absolute;
+              top:1.5;
+              left:6.5rem;
+          }
+      }
+    }
+    .attribution
+    {
+        position: absolute;
+        left: 50%;
+        bottom: 10%;
+        transform: translate(-50%,0%);
+        font-size: 0.4rem;
+        font-weight: 500;
+        text-align: center;
+    }
+  }
+}
